@@ -10,7 +10,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run: echo "hello"
-      - run: echo "My name is ${MY_NAME}"
+      - run: echo "My name is $MY_NAME"
       - run: # print the name of the branch we're on
           name: "What branch am I on?"
           command: echo ${CIRCLE_BRANCH}
