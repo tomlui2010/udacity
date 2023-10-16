@@ -74,7 +74,12 @@ jobs:
   born_to_fail:
     <<: *defaults
     steps:
-      - run: echo "fail"
+      - run: return 1
+  born_to_fail_rollback:
+    <<: *defaults
+    steps:
+      - run: echo "rollback born_to_fail"
+    when: ON_FAIL
         
 # Orchestrate or schedule a set of jobs
 
