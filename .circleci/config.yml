@@ -78,8 +78,11 @@ jobs:
   born_to_fail_rollback:
     <<: *defaults
     steps:
-      - run: echo "rollback born_to_fail"
-        when: on_fail
+      - run:
+          name: roll back step
+          command: echo "rollback"
+          when: on_fail
+
         
 # Orchestrate or schedule a set of jobs
 
