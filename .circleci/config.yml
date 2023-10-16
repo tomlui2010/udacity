@@ -98,4 +98,5 @@ workflows:
       # - print_id_pipeline
       - born_to_fail
       - born_to_fail_rollback
+          requires: born_to_fail
 
