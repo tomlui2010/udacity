@@ -39,7 +39,7 @@ commands:
     parameters:
       to:
         type: string
-        default: "1234"
+        default: $CIRCLE_WORKFLOW_ID
     steps:
       - run: echo << parameters.to >>
 
@@ -71,7 +71,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - print_pipeline_id:
-          to: $CIRCLE_WORKFLOW_ID
+          to: "1234"
         
 # Orchestrate or schedule a set of jobs
 
