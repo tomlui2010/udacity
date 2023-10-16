@@ -39,7 +39,7 @@ commands:
     parameters:
       to:
         type: string
-        default: 1234
+        default: "1234"
     steps:
       - run: echo << parameters.to >>
 
