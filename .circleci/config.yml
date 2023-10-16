@@ -39,7 +39,7 @@ commands:
     parameters:
       to:
         type: string
-        # default: $CIRCLE_WORKFLOW_ID
+        default: $CIRCLE_WORKFLOW_ID
     steps:
       - run: echo << parameters.to >>
 
@@ -50,7 +50,7 @@ orbs:
   welcome: circleci/welcome-orb@0.4.1
 jobs:
   save_hello_world_output:
-    docker:
+    docker: &docker_image
       - image: circleci/node:13.8.0
     steps:
       - run: mkdir -p workspace
@@ -60,15 +60,17 @@ jobs:
           paths:  
             -  output.txt
   print_output_file:
-    docker:
-      - image: circleci/node:13.8.0
+    <<: *docker_image
     steps:
       - attach_workspace:
           at: /tmp/workspace
       - run: cat /tmp/workspace/output.txt
   print_id_pipeline:
-    docker:
-      - image: circleci/node:13.8.0
+    <<: *docker_image
+    steps:
+      - print_pipeline_id
+  born_to_fail:
+    <<: *docker_image
     steps:
       - print_pipeline_id
         
