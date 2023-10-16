@@ -72,7 +72,7 @@ defaults: &defaults
     steps:
       - print_pipeline_id
   born_to_fail:
-    <<<: *defaults
+    <<: *defaults
     steps:
       - run: echo "fail"
         
