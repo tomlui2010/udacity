@@ -75,13 +75,11 @@ jobs:
     <<: *defaults
     steps:
       - run: return 1
-  born_to_fail_rollback:
-    <<: *defaults
-    steps:
       - run:
           name: roll back step
           command: echo "rollback"
           when: on_fail
+      
 
         
 # Orchestrate or schedule a set of jobs
@@ -97,7 +95,5 @@ workflows:
       #       - save_hello_world_output
       # - print_id_pipeline
       - born_to_fail
-      # - born_to_fail_rollback:
-      #     requires: 
-      #       -  born_to_fail
+     
 
