@@ -71,7 +71,6 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - print_pipeline_id:
-          to: "1234"
         
 # Orchestrate or schedule a set of jobs
 
